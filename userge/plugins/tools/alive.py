@@ -27,12 +27,12 @@ _LOG = logging.getLogger(__name__)
 _IS_TELEGRAPH = False
 _IS_STICKER = False
 
-_DEFAULT = "https://t.me/theUserge/31"
+_DEFAULT = "https://telegra.ph/file/24f58fe798fd58f9d746b.jpg"
 _CHAT, _MSG_ID = None, None
 _LOGO_ID = None
 
 
-@userge.on_cmd("alive", about={
+@userge.on_cmd("jinda", about={
     'header': "This command is just for fun"}, allow_channels=False)
 async def alive(message: Message):
     if not (_CHAT and _MSG_ID):
@@ -70,12 +70,6 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 **⚙️ Mode** : `{_get_mode().upper()}`
 
 • **Sudo**: `{_parse_arg(Config.SUDO_ENABLED)}`
-• **Pm-Guard**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
-• **Anti-Spam**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
-    if Config.HEROKU_APP:
-        output += f"\n• **Dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
-    output += f"""
-• **Unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
 
     **__Python__**: `{versions.__python_version__}`
     **__Pyrogram__**: `{versions.__pyro_version__}`"""
@@ -84,13 +78,13 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 🎖 **{versions.__license__}** | 👥 **{versions.__copyright__}** | 🧪 **[Repo]({Config.UPSTREAM_REPO})**
 """
     else:
-        copy_ = "https://github.com/UsergeTeam/Userge/blob/master/LICENSE"
+        copy_ = "https://t.me/CompetitionLevelQuizes"
         markup = InlineKeyboardMarkup([
             [
-                InlineKeyboardButton(text="👥 UsergeTeam", url="https://github.com/UsergeTeam"),
-                InlineKeyboardButton(text="🧪 Repo", url=Config.UPSTREAM_REPO)
+                InlineKeyboardButton(text="STUDY GROUP", url="https://t.me/class_9th_10th"),
+             
             ],
-            [InlineKeyboardButton(text="🎖 GNU GPL v3.0", url=copy_)]
+            [InlineKeyboardButton(text="Quiz Group", url=copy_)]
         ])
     return output, markup
 
